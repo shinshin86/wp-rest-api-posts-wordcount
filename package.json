@@ -1,0 +1,49 @@
+{
+  "name": "wp-rest-api-posts-wordcount",
+  "version": "0.0.1",
+  "description": "Using the WP REST API, get the title, URL, content text, and number of characters in the content of all published articles of the target WordPress in JSON format.",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "fmt": "prettier --write **/*.{ts,json,md}"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shinshin86/wp-rest-api-posts-wordcount.git"
+  },
+  "keywords": [
+    "wordpress",
+    "wp",
+    "wp",
+    "rest",
+    "api",
+    "wordcount",
+    "word",
+    "count",
+    "text",
+    "count",
+    "text",
+    "counter",
+    "word",
+    "counter"
+  ],
+  "author": "shinshin86 <shinshin86npm@gmail.com> (https://github.com/shinshin86)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shinshin86/wp-rest-api-posts-wordcount/issues"
+  },
+  "homepage": "https://github.com/shinshin86/wp-rest-api-posts-wordcount#readme",
+  "dependencies": {
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.2",
+    "jest": "^27.0.4",
+    "prettier": "^2.3.1",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.2"
+  }
+}
