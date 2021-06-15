@@ -53,7 +53,7 @@ Returns the result in JSON format.
 
 ## Licence
 
-MIT
+[MIT](https://github.com/shinshin86/wp-rest-api-posts-wordcount/blob/main/LICENSE)
 
 ## Author
 
