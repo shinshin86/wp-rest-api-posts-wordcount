@@ -45,8 +45,13 @@ module.exports = async (url: string): Promise<Array<WPCountData>> => {
 
   const targetUrl = `${url}/wp-json/wp/v2/posts`;
   const response = await fetch(targetUrl);
-  const wpTotalPageCount = response.headers.get('X-WP-Total');
-  const paginationCount = Math.ceil(wpTotalPageCount / 100);
+  const wpTotalPageCount: string | null = response.headers.get('X-WP-Total');
+
+  if (wpTotalPageCount) {
+    return [];
+  }
+
+  const paginationCount = Math.ceil(Number(wpTotalPageCount) / 100);
 
   for (let i = 1; i <= paginationCount; i++) {
     const contentData = await fetchData(targetUrl, i);
