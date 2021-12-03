@@ -41,8 +41,6 @@ module.exports = async (url: string): Promise<Array<WPCountData>> => {
     throw e;
   }
 
-  let postList: Array<WPCountData> = [];
-
   const targetUrl = `${url}/wp-json/wp/v2/posts`;
   const response = await fetch(targetUrl);
   const wpTotalPageCount: string | null = response.headers.get('X-WP-Total');
@@ -51,6 +49,7 @@ module.exports = async (url: string): Promise<Array<WPCountData>> => {
     return [];
   }
 
+  let postList: Array<WPCountData> = [];
   const paginationCount = Math.ceil(Number(wpTotalPageCount) / 100);
 
   for (let i = 1; i <= paginationCount; i++) {
