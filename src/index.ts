@@ -1,17 +1,17 @@
 const fetch = require('node-fetch');
 const URL = require('url').URL;
 
-interface DataObj {
+type WPCountData = {
   title: string;
   url: string;
   content: string;
   wordcount: number;
-}
+};
 
 const fetchData = async (
   url: string,
   page: number
-): Promise<Array<DataObj>> => {
+): Promise<Array<WPCountData>> => {
   const perPage = 100;
 
   const targetUrl = `${url}?per_page=${perPage}&page=${page}`;
@@ -33,7 +33,7 @@ const removeHtmlTag = (text: string): string => {
   return text.replace(/(<([^>]+)>)/gi, '').replace(/\n/gi, '');
 };
 
-module.exports = async (url: string): Promise<Array<DataObj>> => {
+module.exports = async (url: string): Promise<Array<WPCountData>> => {
   try {
     new URL(url);
   } catch (e) {
@@ -41,7 +41,7 @@ module.exports = async (url: string): Promise<Array<DataObj>> => {
     throw e;
   }
 
-  let postList: Array<DataObj> = [];
+  let postList: Array<WPCountData> = [];
 
   const targetUrl = `${url}/wp-json/wp/v2/posts`;
   const response = await fetch(targetUrl);
