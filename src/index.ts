@@ -45,7 +45,7 @@ module.exports = async (url: string): Promise<Array<WPCountData>> => {
   const response = await fetch(targetUrl);
   const wpTotalPageCount: string | null = response.headers.get('X-WP-Total');
 
-  if (wpTotalPageCount) {
+  if (!wpTotalPageCount) {
     return [];
   }
 
