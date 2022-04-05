@@ -1,5 +1,4 @@
 const fetch = require('node-fetch');
-const URL = require('url').URL;
 
 type WPCountData = {
   title: string;
@@ -35,6 +34,7 @@ const removeHtmlTag = (text: string): string => {
 
 module.exports = async (url: string): Promise<Array<WPCountData>> => {
   try {
+    const URL = require('url').URL;
     new URL(url);
   } catch (e) {
     console.error('ERROR: Invalid URL entered.');
