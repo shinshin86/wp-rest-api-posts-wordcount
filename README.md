@@ -27,27 +27,30 @@ const getWordcountList = require('wp-rest-api-posts-wordcount');
 })();
 ```
 
-Returns the result in JSON format.
+Returns the result.
 
-```json
+```javascript
 [
   {
     title: 'Post title',
     url: 'Post url',
     content: 'content text',
-    wordcount: word count(Number of characters in the content)
+    wordcount: word count(Number of characters in the content),
+    publishDate: '2020-01-01T00:00:00'
   },
   {
     title: 'Post title',
     url: 'Post url',
     content: 'content text',
-    wordcount: word count(Number of characters in the content)
+    wordcount: word count(Number of characters in the content),
+    publishDate: '2020-02-01T00:00:00'
   },
   {
     title: 'Post title',
     url: 'Post url',
     content: 'content text',
-    wordcount: word count(Number of characters in the content)
+    wordcount: word count(Number of characters in the content),
+    publishDate: '2020-03-01T00:00:00'
   },
   ...
 ]
