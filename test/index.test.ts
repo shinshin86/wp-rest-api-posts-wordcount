@@ -81,6 +81,45 @@ describe('wp-rest-api-posts-wordcount', (): void => {
         '2000-03-1T00:00:00',
       ]);
     });
+
+    test('Should a sort results are overwritten in this order. [wordcount -> publishDate]', async (): Promise<void> => {
+      const postList = JSON.parse(
+        await fs.readFile(path.join(__dirname, 'mock-response.json'), 'utf8')
+      );
+
+      const wordcountSortedList: Array<number> = getWordcountList.sort(
+        postList,
+        { wordcount: 'asc' }
+      );
+
+      expect(wordcountSortedList.map((post: any) => post.wordcount)).toEqual([
+        10, 300, 2000,
+      ]);
+
+      const publishDataSortedList: Array<number> = getWordcountList.sort(
+        wordcountSortedList,
+        { publishDate: 'asc' }
+      );
+
+      expect(
+        publishDataSortedList.map((post: any) => post.wordcount)
+      ).not.toEqual([10, 300, 2000]);
+
+      expect(
+        publishDataSortedList.map((post: any) => post.publishDate)
+      ).toEqual([
+        '2000-01-1T00:00:00',
+        '2000-02-1T00:00:00',
+        '2000-03-1T00:00:00',
+      ]);
+
+      // Check that wordcountSortedList has the same value change.
+      expect(wordcountSortedList.map((post: any) => post.publishDate)).toEqual([
+        '2000-01-1T00:00:00',
+        '2000-02-1T00:00:00',
+        '2000-03-1T00:00:00',
+      ]);
+    });
   });
 
   describe('Error handling', (): void => {
