@@ -1,5 +1,7 @@
 # wp-rest-api-posts-wordcount
 
+![Logo](./images/logo.png)
+
 [![Test](https://github.com/shinshin86/wp-rest-api-posts-wordcount/actions/workflows/test.yml/badge.svg)](https://github.com/shinshin86/wp-rest-api-posts-wordcount/actions/workflows/test.yml)
 
 Using the WP REST API, get the title, URL, content text, and number of characters in the content of all published articles of the target WordPress in JSON format.
