@@ -56,6 +56,42 @@ Returns the result.
 ]
 ```
 
+### Sort options
+
+It is possible to sort by either wordcount or publishDate.
+
+wordcount: asc
+
+```javascript
+const response = await getWordcountList('your wordpress url', {
+  sort: { wordcount: 'asc' },
+});
+```
+
+wordcount: desc
+
+```javascript
+const response = await getWordcountList('your wordpress url', {
+  sort: { wordcount: 'desc' },
+});
+```
+
+publishDate: asc
+
+```javascript
+const response = await getWordcountList('your wordpress url', {
+  sort: { publishDate: 'asc' },
+});
+```
+
+publishDate: desc
+
+```javascript
+const response = await getWordcountList('your wordpress url', {
+  sort: { publishDate: 'desc' },
+});
+```
+
 ## Licence
 
 [MIT](https://github.com/shinshin86/wp-rest-api-posts-wordcount/blob/main/LICENSE)
