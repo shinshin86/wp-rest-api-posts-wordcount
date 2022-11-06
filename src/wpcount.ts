@@ -1,27 +1,10 @@
-const fetch = require('node-fetch');
-
-type WPCountData = {
-  title: string;
-  url: string;
-  content: string;
-  wordcount: number;
-  publishDate: Date;
-};
-
-type Options = {
-  sort: SortOptions;
-};
-
-type SortValues = 'asc' | 'desc' | null;
-
-type SortOptions = {
-  wordcount?: SortValues;
-  publishDate?: SortValues;
-};
+import { WPCountData, Options, SortOptions, SortFunction } from './types';
+import { URL } from 'url';
 
 const fetchData = async (
   url: string,
-  page: number
+  page: number,
+  fetch: Function
 ): Promise<Array<WPCountData>> => {
   const perPage = 100;
 
@@ -45,12 +28,12 @@ const removeHtmlTag = (text: string): string => {
   return text.replace(/(<([^>]+)>)/gi, '').replace(/\n/gi, '');
 };
 
-module.exports = async (
+const getWPCount = async (
   url: string,
-  option: Options
+  option: Options,
+  fetch: Function
 ): Promise<Array<WPCountData>> => {
   try {
-    const URL = require('url').URL;
     new URL(url);
   } catch (e) {
     console.error('ERROR: Invalid URL entered.');
@@ -69,7 +52,7 @@ module.exports = async (
   const paginationCount = Math.ceil(wpTotalPageCount / 100);
 
   for (let i = 1; i <= paginationCount; i++) {
-    const contentData = await fetchData(targetUrl, i);
+    const contentData = await fetchData(targetUrl, i, fetch);
     postList = postList.concat(contentData);
   }
 
@@ -115,7 +98,11 @@ const sort = (
   return postList;
 };
 
+let exportSortFunction: SortFunction | undefined = undefined;
+
 // Export only when the test is run.
 if (process.env.NODE_ENV === 'test') {
-  module.exports.sort = sort;
+  exportSortFunction = sort;
 }
+
+export { getWPCount, exportSortFunction as sort };

@@ -3,11 +3,20 @@
   "version": "0.1.0",
   "description": "Using the WP REST API, get the title, URL, content text, and number of characters in the content of all published articles of the target WordPress in JSON format.",
   "main": "dist/index.js",
+  "exports": {
+    "node": {
+      "import": "dist/index-node.mjs",
+      "require": "dist/index-node.cjs"
+    },
+    "default": "dist/index.js"
+  },
   "scripts": {
     "test": "jest",
-    "build": "tsc",
+    "build": "npm run build:cjs && npm run build:esm",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:esm": "tsc -p tsconfig.esm.json",
     "prepublishOnly": "npm run build",
-    "fmt": "prettier --write **/*.{ts,json,md}"
+    "fmt": "prettier --write **/*.{ts,mts,cjs,json,md}"
   },
   "repository": {
     "type": "git",
@@ -36,7 +45,8 @@
   },
   "homepage": "https://github.com/shinshin86/wp-rest-api-posts-wordcount#readme",
   "dependencies": {
-    "node-fetch": "^2.6.7"
+    "node-fetch-2": "npm:node-fetch@^2.6.7",
+    "node-fetch-3": "npm:node-fetch@^3.2.10"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

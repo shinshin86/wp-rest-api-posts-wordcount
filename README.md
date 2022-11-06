@@ -16,6 +16,21 @@ yarn add wp-rest-api-posts-wordcount
 
 ## Usage
 
+ES Modules
+
+```javascript
+import getWordcountList from('wp-rest-api-posts-wordcount');
+
+try {
+  const response = await getWordcountList('your wordpress url');
+  console.log(response);
+} catch (e) {
+  console.error(e);
+}
+```
+
+CommonJS
+
 ```javascript
 const getWordcountList = require('wp-rest-api-posts-wordcount');
 
@@ -92,6 +107,14 @@ publishDate: desc
 const response = await getWordcountList('your wordpress url', {
   sort: { publishDate: 'desc' },
 });
+```
+
+## Development
+
+### test
+
+```sh
+npm run test
 ```
 
 ## Licence

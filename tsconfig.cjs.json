@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2019",
+    "module": "commonjs",
+    "outDir": "dist/cjs"
+  },
+  "include": ["src/**/*.ts", "src/**/*.cts"],
+  "exclude": ["src/index-umd.ts"]
+}
