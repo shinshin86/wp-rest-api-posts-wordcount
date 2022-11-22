@@ -1,5 +1,5 @@
 import fetch from 'node-fetch-3';
-import { getWPCount } from './wpcount';
+import { getWPCount } from './wpcount.js';
 import { WPCountData, Options } from './types';
 
 export default async (

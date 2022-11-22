@@ -1,5 +1,5 @@
 const fetch = require('node-fetch-2');
-const { getWPCount } = require('./wpcount');
+const { getWPCount } = require('./wpcount.cjs');
 
 /**
  * TODO:
