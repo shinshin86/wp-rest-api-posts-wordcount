@@ -6,12 +6,12 @@
     "/dist"
   ],
   "type": "module",
-  "main": "./dist/cjs/index-node.cjs",
+  "main": "./dist/cjs/index.cjs",
   "exports": {
     ".": {
-      "import": "./dist/esm/index-node.mjs",
-      "require": "./dist/cjs/index-node.cjs",
-      "type": "./dist/esm/index-node.d.ts"
+      "import": "./dist/esm/index.mjs",
+      "require": "./dist/cjs/index.cjs",
+      "type": "./dist/esm/index.d.ts"
     }
   },
   "scripts": {
