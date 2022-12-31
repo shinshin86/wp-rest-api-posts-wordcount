@@ -1,6 +1,6 @@
 {
   "name": "wp-rest-api-posts-wordcount",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Using the WP REST API, get the title, URL, content text, and number of characters in the content of all published articles of the target WordPress in JSON format.",
   "files": [
     "/dist"
