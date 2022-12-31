@@ -105,9 +105,8 @@ let exportSortFunction: SortFunction | undefined = undefined;
 
 // Export only when the test is run.
 // TODO
-/*
 if (process.env.NODE_ENV === 'test') {
   exportSortFunction = sort;
 }
-*/
+
 export { getWPCount, exportSortFunction as sort };
