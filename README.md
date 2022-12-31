@@ -16,6 +16,10 @@ yarn add wp-rest-api-posts-wordcount
 
 ## Usage
 
+Support `CJS/ESM/UMD`.
+
+### CommonJS
+
 ```javascript
 const getWordcountList = require('wp-rest-api-posts-wordcount');
 
@@ -27,6 +31,48 @@ const getWordcountList = require('wp-rest-api-posts-wordcount');
     console.error(e);
   }
 })();
+```
+
+### ES Modules
+
+```javascript
+import getWordcountList from('wp-rest-api-posts-wordcount');
+
+try {
+  const response = await getWordcountList('your wordpress url');
+  console.log(response);
+} catch (e) {
+  console.error(e);
+}
+```
+
+### UMD
+
+After loading the script, it is available with the function name `GetWPWordcountList`.
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>UMD Sample</title>
+    <script src="/node_modules/wp-rest-api-posts-wordcount/dist/umd/wp-rest-api-posts-wordcount.umd.cjs"></script>
+  </head>
+  <body>
+    <div>
+      <input type="text" id="url" />
+      <button id="search">Search</button>
+    </div>
+    <script>
+      document.getElementById('search').addEventListener('click', async (e) => {
+        const url = document.getElementById('url').value;
+        const response = await GetWPWordcountList(url);
+        console.log({ response });
+      });
+    </script>
+  </body>
+</html>
 ```
 
 Returns the result.
@@ -92,6 +138,14 @@ publishDate: desc
 const response = await getWordcountList('your wordpress url', {
   sort: { publishDate: 'desc' },
 });
+```
+
+## Development
+
+### test
+
+```sh
+npm run test
 ```
 
 ## Licence

@@ -1,7 +1,5 @@
 {
   "compilerOptions": {
-    "target": "es2019",
-    "module": "commonjs",
     "lib": ["es2020"],
     "moduleResolution": "node",
     "strict": true,
@@ -11,6 +9,5 @@
     "newLine": "lf",
     "outDir": "dist"
   },
-  "include": ["src/**/*"],
   "exclude": ["test/**/*", "dist", "node_modules"]
 }

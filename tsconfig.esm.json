@@ -1,0 +1,10 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "target": "es2020",
+    "module": "ESNext",
+    "outDir": "dist/esm"
+  },
+  "include": ["src/**/*.ts", "src/**/*.mts"],
+  "exclude": ["src/index-umd.ts"]
+}
