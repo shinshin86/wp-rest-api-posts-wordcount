@@ -10,11 +10,6 @@ export default defineConfig({
     },
     rollupOptions: {
         external: ['url'],
-        output: {
-            globals: {
-                url: 'url'
-            }
-        }
     },
     outDir: "dist/umd"
   }

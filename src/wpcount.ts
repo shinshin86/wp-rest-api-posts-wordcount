@@ -1,5 +1,8 @@
 import { WPCountData, Options, SortOptions, SortFunction } from './types';
-import { URL } from 'url';
+import * as url from 'url';
+
+// @ts-ignore
+const URL = url?.URL || window.URL;
 
 const fetchData = async (
   url: string,
