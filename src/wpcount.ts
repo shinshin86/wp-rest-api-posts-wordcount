@@ -104,8 +104,8 @@ const sort = (
 let exportSortFunction: SortFunction | undefined = undefined;
 
 // Export only when the test is run.
-// TODO
-if (process.env.NODE_ENV === 'test') {
+// @ts-ignore
+if (typeof window == 'undefined' && process.env.NODE_ENV === 'test') {
   exportSortFunction = sort;
 }
 
